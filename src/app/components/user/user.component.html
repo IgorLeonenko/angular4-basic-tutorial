@@ -1,0 +1,48 @@
+<h1>{{name}}</h1>
+<ul>
+  <li>age: {{age}}</li>
+  <li>email: {{email}}</li>
+  <li>{{address.street}}, {{address.city}}</li>
+</ul>
+
+<h2>Edit user</h2>
+<form>
+  <div>
+    <label for="name">name: </label>
+    <input type="text" [(ngModel)]="name" name="name">
+  </div>
+  <div>
+    <label for="age">age: </label>
+    <input type="number" [(ngModel)]="age" name="age">
+  </div>
+  <div>
+    <label for="email">email: </label>
+    <input type="text" [(ngModel)]="email" name="email">
+  </div>
+  <div>
+    <label for="street">street: </label>
+    <input type="text" [(ngModel)]="address.street" name="address.street">
+  </div>
+  <div>
+    <label for="city">city: </label>
+    <input type="text" [(ngModel)]="address.city" name="address.city">
+  </div>
+</form>
+
+<h2>Hobbies:</h2>
+<form (submit)="addHobbby(hobby.value)">
+  <label for="hobby">Hobby</label>
+  <input type="text">
+</form>
+
+<ul>
+  <li *ngFor="let hobby of hobbies">{{hobby}} <button (click)="deleteHobby(hobby)">X</button></li>
+</ul>
+
+
+<h2>Posts</h2>
+<div *ngFor="let post of posts">
+  <h4>{{post.title}}</h4>
+  <p>{{posts.id}}</p>
+  <p>{{post.body}}</p>
+</div>
